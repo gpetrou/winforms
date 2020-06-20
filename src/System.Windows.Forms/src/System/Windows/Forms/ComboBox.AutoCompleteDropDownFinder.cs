@@ -55,11 +55,18 @@ namespace System.Windows.Forms
                 return BOOL.TRUE;
             }
 
-            static string GetClassName(HandleRef hRef)
+            static unsafe string GetClassName(HandleRef hRef)
             {
-                StringBuilder sb = new StringBuilder(MaxClassName);
-                UnsafeNativeMethods.GetClassName(hRef, sb, MaxClassName);
-                return sb.ToString();
+                string className;
+                char[] classNameChars = ArrayPool<char>.Shared.Rent(MaxClassName);
+                fixed (char* pClassName = classNameChars)
+                {
+                    GetClassNameW(hRef, pClassName, MaxClassName);
+                    className = new string(pClassName, 0, MaxClassName);
+                }
+
+                ArrayPool<char>.Shared.Return(classNameChars);
+                return className;
             }
         }
     }

@@ -10,11 +10,6 @@ namespace System.Windows.Forms
 {
     internal static class UnsafeNativeMethods
     {
-        [DllImport(Libraries.User32)]
-#pragma warning disable CA1838 // Avoid 'StringBuilder' parameters for P/Invokes
-        public static extern int GetClassName(HandleRef hwnd, StringBuilder lpClassName, int nMaxCount);
-#pragma warning restore CA1838 // Avoid 'StringBuilder' parameters for P/Invokes
-
         [DllImport(Libraries.Comdlg32, SetLastError = true, CharSet = CharSet.Auto)]
         public static extern HRESULT PrintDlgEx([In, Out] NativeMethods.PRINTDLGEX lppdex);
 

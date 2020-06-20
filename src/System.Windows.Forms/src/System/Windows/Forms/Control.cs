@@ -4,6 +4,7 @@
 
 #nullable disable
 
+using System.Buffers;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -2484,7 +2485,7 @@ namespace System.Windows.Forms
             set => SetBounds(_x, _y, _width, value, BoundsSpecified.Height);
         }
 
-        internal bool HostedInWin32DialogManager
+        internal unsafe bool HostedInWin32DialogManager
         {
             get
             {
@@ -2500,20 +2501,22 @@ namespace System.Windows.Forms
                         IntPtr parentHandle = User32.GetParent(this);
                         IntPtr lastParentHandle = parentHandle;
 
-                        StringBuilder sb = new StringBuilder(32);
-
                         SetState(States.HostedInDialog, false);
 
                         while (parentHandle != IntPtr.Zero)
                         {
-                            int len = UnsafeNativeMethods.GetClassName(new HandleRef(null, lastParentHandle), null, 0);
-                            if (len > sb.Capacity)
+                            string className;
+                            int len = User32.GetClassNameW(lastParentHandle, null, 0);
+                            char[] classNameChars = ArrayPool<char>.Shared.Rent(len);
+                            fixed (char* pClassName = classNameChars)
                             {
-                                sb.Capacity = len + 5;
+                                User32.GetClassNameW(lastParentHandle, pClassName, len);
+                                className = new string(pClassName, 0, len);
                             }
-                            UnsafeNativeMethods.GetClassName(new HandleRef(null, lastParentHandle), sb, sb.Capacity);
 
-                            if (sb.ToString() == "#32770")
+                            ArrayPool<char>.Shared.Return(classNameChars);
+
+                            if (className == "#32770")
                             {
                                 SetState(States.HostedInDialog, true);
                                 break;

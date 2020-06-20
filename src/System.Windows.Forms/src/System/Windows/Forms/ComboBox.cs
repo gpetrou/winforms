@@ -3893,6 +3893,24 @@ namespace System.Windows.Forms
                     comboAdapter = CreateFlatComboAdapterInstance();
                     Properties.SetObject(PropFlatComboAdapter, comboAdapter);
                 }
+
+                string itemName1 = _comboBox.GetItemText(item1);
+                string itemName2 = _comboBox.GetItemText(item2);
+
+                CompareInfo compInfo = (Application.CurrentCulture).CompareInfo;
+                return compInfo.Compare(itemName1, itemName2, CompareOptions.StringSort);
+            }
+        }
+
+        private FlatComboAdapter FlatComboBoxAdapter
+        {
+            get
+            {
+                if (!(Properties.GetObject(PropFlatComboAdapter) is FlatComboAdapter comboAdapter) || !comboAdapter.IsValid(this))
+                {
+                    comboAdapter = CreateFlatComboAdapterInstance();
+                    Properties.SetObject(PropFlatComboAdapter, comboAdapter);
+                }
                 return comboAdapter;
             }
         }
