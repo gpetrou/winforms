@@ -5,6 +5,7 @@
 #nullable disable
 
 using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -41,7 +42,7 @@ namespace System.Windows.Forms
 
         private bool _textLayoutValid;
         private bool _receivedDoubleClick;
-        private readonly ArrayList _links = new ArrayList(2);
+        private readonly List<Link> _links = new List<Link>(2);
 
         private Link _focusLink;
         private LinkCollection _linkCollection;
@@ -215,7 +216,7 @@ namespace System.Windows.Forms
                 {
                     return new LinkArea(0, 0);
                 }
-                return new LinkArea(((Link)_links[0]).Start, ((Link)_links[0]).Length);
+                return new LinkArea(_links[0].Start, _links[0].Length);
             }
             set
             {
@@ -238,10 +239,9 @@ namespace System.Windows.Forms
                     {
                         Links.Add(new Link(this));
 
-                        // Update the link area of the first link
-                        //
-                        ((Link)_links[0]).Start = value.Start;
-                        ((Link)_links[0]).Length = value.Length;
+                        // Update the link area of the first link.
+                        _links[0].Start = value.Start;
+                        _links[0].Length = value.Length;
                     }
                 }
 
@@ -347,7 +347,7 @@ namespace System.Windows.Forms
                 }
                 else
                 {
-                    return ((Link)_links[0]).Visited;
+                    return _links[0].Visited;
                 }
             }
             set
@@ -358,7 +358,8 @@ namespace System.Windows.Forms
                     {
                         Links.Add(new Link(this));
                     }
-                    ((Link)_links[0]).Visited = value;
+
+                    _links[0].Visited = value;
                 }
             }
         }
@@ -762,7 +763,7 @@ namespace System.Windows.Forms
 
             StringInfo stringInfo = new StringInfo(text);
             int textLen = stringInfo.LengthInTextElements;
-            ArrayList ranges = new ArrayList(Links.Count);
+            List<CharacterRange> ranges = new List<CharacterRange>(Links.Count + 1);
 
             foreach (Link link in Links)
             {
@@ -775,11 +776,9 @@ namespace System.Windows.Forms
                 }
             }
 
-            CharacterRange[] regions = new CharacterRange[ranges.Count + 1];
-            ranges.CopyTo(regions, 0);
-            regions[regions.Length - 1] = new CharacterRange(0, text.Length);
+            ranges.Add(new CharacterRange(0, text.Length));
 
-            return regions;
+            return ranges.ToArray();
         }
 
         /// <summary>
@@ -1014,14 +1013,14 @@ namespace System.Windows.Forms
 
             for (int i = 0; i < _links.Count; i++)
             {
-                if ((((Link)_links[i]).State & LinkState.Hover) == LinkState.Hover)
+                if ((_links[i].State & LinkState.Hover) == LinkState.Hover)
                 {
-                    ((Link)_links[i]).State |= LinkState.Active;
+                    _links[i].State |= LinkState.Active;
 
                     Focus();
-                    if (((Link)_links[i]).Enabled)
+                    if (_links[i].Enabled)
                     {
-                        FocusLink = (Link)_links[i];
+                        FocusLink = _links[i];
                         InvalidateLink(FocusLink);
                     }
                     Capture = true;
@@ -1052,10 +1051,10 @@ namespace System.Windows.Forms
 
             for (int i = 0; i < _links.Count; i++)
             {
-                if ((((Link)_links[i]).State & LinkState.Active) == LinkState.Active)
+                if ((_links[i].State & LinkState.Active) == LinkState.Active)
                 {
-                    ((Link)_links[i]).State &= (~LinkState.Active);
-                    InvalidateLink((Link)_links[i]);
+                    _links[i].State &= ~LinkState.Active;
+                    InvalidateLink(_links[i]);
                     Capture = false;
 
                     Link clicked = PointInLink(e.X, e.Y);
@@ -1198,7 +1197,7 @@ namespace System.Windows.Forms
                             {
                                 //exclude the area to draw the focus rectangle
                                 g.Clip = originalClip;
-                                RectangleF[] rects = ((Link)_links[0]).VisualRegion.GetRegionScans(e.GraphicsInternal.Transform);
+                                RectangleF[] rects = _links[0].VisualRegion.GetRegionScans(e.GraphicsInternal.Transform);
                                 if (rects != null && rects.Length > 0)
                                 {
                                     if (UseCompatibleTextRendering)
@@ -1392,7 +1391,7 @@ namespace System.Windows.Forms
             {
                 for (int i = 0; i < _links.Count; i++)
                 {
-                    ((Link)_links[i]).State &= ~(LinkState.Hover | LinkState.Active);
+                    _links[i].State &= ~(LinkState.Hover | LinkState.Active);
                 }
                 OverrideCursor = null;
             }
@@ -1801,7 +1800,7 @@ namespace System.Windows.Forms
 
                     if (newFocus != -1)
                     {
-                        FocusLink = (Link)_links[newFocus];
+                        FocusLink = _links[newFocus];
                     }
                 }
             }
@@ -1891,7 +1890,7 @@ namespace System.Windows.Forms
         {
             for (int x = 0; x < _links.Count; x++)
             {
-                Link left = (Link)_links[x];
+                Link left = _links[x];
                 if (left.Length < 0)
                 {
                     throw new InvalidOperationException(SR.LinkLabelOverlap);
@@ -1901,7 +1900,7 @@ namespace System.Windows.Forms
                 {
                     if (x != y)
                     {
-                        Link right = (Link)_links[y];
+                        Link right = _links[y];
                         int maxStart = Math.Max(left.Start, right.Start);
                         int minEnd = Math.Min(left.Start + left.Length, right.Start + right.Length);
                         if (maxStart < minEnd)
