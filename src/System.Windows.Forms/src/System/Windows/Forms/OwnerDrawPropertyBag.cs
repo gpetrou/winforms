@@ -2,8 +2,6 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-#nullable disable
-
 using System.Drawing;
 using System.Runtime.Serialization;
 using static Interop;
@@ -16,7 +14,7 @@ namespace System.Windows.Forms
     [Serializable] // This class is participating in resx serialization scenarios for listview/treeview items.
     public class OwnerDrawPropertyBag : MarshalByRefObject, ISerializable
     {
-        private Control.FontHandleWrapper _fontWrapper;
+        private Control.FontHandleWrapper? _fontWrapper;
         private static readonly object s_internalSyncObject = new object();
 
         protected OwnerDrawPropertyBag(SerializationInfo info, StreamingContext context)
@@ -25,15 +23,15 @@ namespace System.Windows.Forms
             {
                 if (entry.Name == nameof(Font))
                 {
-                    Font = (Font)entry.Value;
+                    Font = entry.Value as Font;
                 }
                 else if (entry.Name == nameof(ForeColor))
                 {
-                    ForeColor = (Color)entry.Value;
+                    ForeColor = (Color)entry.Value!;
                 }
                 else if (entry.Name == nameof(BackColor))
                 {
-                    BackColor = (Color)entry.Value;
+                    BackColor = (Color)entry.Value!;
                 }
             }
         }
@@ -42,7 +40,7 @@ namespace System.Windows.Forms
         {
         }
 
-        public Font Font { get; set; }
+        public Font? Font { get; set; }
 
         public Color ForeColor { get; set; }
 
@@ -54,7 +52,7 @@ namespace System.Windows.Forms
             {
                 if (_fontWrapper is null)
                 {
-                    _fontWrapper = new Control.FontHandleWrapper(Font);
+                    _fontWrapper = new Control.FontHandleWrapper(Font!);
                 }
 
                 return _fontWrapper.Handle;
@@ -69,7 +67,7 @@ namespace System.Windows.Forms
         /// <summary>
         ///  Copies the bag. Always returns a valid ODPB object
         /// </summary>
-        public static OwnerDrawPropertyBag Copy(OwnerDrawPropertyBag value)
+        public static OwnerDrawPropertyBag Copy(OwnerDrawPropertyBag? value)
         {
             lock (s_internalSyncObject)
             {
