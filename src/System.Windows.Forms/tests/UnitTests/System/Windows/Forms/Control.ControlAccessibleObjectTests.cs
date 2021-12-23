@@ -59,7 +59,7 @@ namespace System.Windows.Forms.Tests
             Assert.Null(accessibleObject.Parent);
             Assert.Equal(AccessibleRole.None, accessibleObject.Role);
             Assert.Equal(AccessibleStates.None, accessibleObject.State);
-            Assert.Equal(string.Empty, accessibleObject.Value);
+            Assert.Empty(accessibleObject.Value);
         }
 
         [WinFormsFact]
@@ -813,11 +813,11 @@ namespace System.Windows.Forms.Tests
             var accessibleObject = new Control.ControlAccessibleObject(ownerControl);
 
             accessibleObject.Value = value;
-            Assert.Equal(string.Empty, accessibleObject.Value);
+            Assert.Empty(accessibleObject.Value);
 
             // Set same.
             accessibleObject.Value = value;
-            Assert.Equal(string.Empty, accessibleObject.Value);
+            Assert.Empty(accessibleObject.Value);
             Assert.False(ownerControl.IsHandleCreated);
         }
 

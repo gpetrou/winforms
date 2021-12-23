@@ -28,7 +28,7 @@ namespace System.Windows.Forms.Tests
             Assert.True(style.IsDataSourceNullValueDefault);
             Assert.True(style.IsFormatProviderDefault);
             Assert.True(style.IsNullValueDefault);
-            Assert.Equal(string.Empty, style.NullValue);
+            Assert.Empty(style.NullValue);
             Assert.Equal(Padding.Empty, style.Padding);
             Assert.Equal(Color.Empty, style.SelectionBackColor);
             Assert.Equal(Color.Empty, style.SelectionForeColor);
@@ -95,7 +95,7 @@ namespace System.Windows.Forms.Tests
             Assert.True(style.IsDataSourceNullValueDefault);
             Assert.True(style.IsFormatProviderDefault);
             Assert.True(style.IsNullValueDefault);
-            Assert.Equal(string.Empty, style.NullValue);
+            Assert.Empty(style.NullValue);
             Assert.Equal(Padding.Empty, style.Padding);
             Assert.Equal(Color.Empty, style.SelectionBackColor);
             Assert.Equal(Color.Empty, style.SelectionForeColor);
@@ -476,7 +476,7 @@ namespace System.Windows.Forms.Tests
                 NullValue = "value"
             };
             style.NullValue = string.Empty;
-            Assert.Equal(string.Empty, style.NullValue);
+            Assert.Empty(style.NullValue);
             Assert.True(style.IsNullValueDefault);
         }
 
@@ -764,7 +764,7 @@ namespace System.Windows.Forms.Tests
             Assert.True(style.IsDataSourceNullValueDefault);
             Assert.True(style.IsFormatProviderDefault);
             Assert.True(style.IsNullValueDefault);
-            Assert.Equal(string.Empty, style.NullValue);
+            Assert.Empty(style.NullValue);
             Assert.Equal(Padding.Empty, style.Padding);
             Assert.Equal(Color.Empty, style.SelectionBackColor);
             Assert.Equal(Color.Empty, style.SelectionForeColor);
@@ -831,7 +831,7 @@ namespace System.Windows.Forms.Tests
             Assert.True(style.IsDataSourceNullValueDefault);
             Assert.True(style.IsFormatProviderDefault);
             Assert.True(style.IsNullValueDefault);
-            Assert.Equal(string.Empty, style.NullValue);
+            Assert.Empty(style.NullValue);
             Assert.Equal(Padding.Empty, style.Padding);
             Assert.Equal(Color.Empty, style.SelectionBackColor);
             Assert.Equal(Color.Empty, style.SelectionForeColor);

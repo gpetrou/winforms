@@ -641,7 +641,7 @@ namespace System.Windows.Forms.Tests
 
                 string actual = provider.Text.Trim('\0');
 
-                Assert.Equal(string.Empty, actual);
+                Assert.Empty(actual);
                 Assert.False(comboBox.IsHandleCreated);
                 Assert.Null(comboBox.TestAccessor().Dynamic._childEdit);
             }

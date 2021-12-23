@@ -25,7 +25,7 @@ namespace System.Windows.Forms.Tests
             Assert.NotNull(header.Events);
             Assert.Same(header.Events, header.Events);
             Assert.Equal(-1, header.ImageIndex);
-            Assert.Equal(string.Empty, header.ImageKey);
+            Assert.Empty(header.ImageKey);
             Assert.Null(header.ImageList);
             Assert.Equal(-1, header.Index);
             Assert.Null(header.ListView);
@@ -51,7 +51,7 @@ namespace System.Windows.Forms.Tests
             Assert.NotNull(header.Events);
             Assert.Same(header.Events, header.Events);
             Assert.Equal(imageIndex, header.ImageIndex);
-            Assert.Equal(string.Empty, header.ImageKey);
+            Assert.Empty(header.ImageKey);
             Assert.Null(header.ImageList);
             Assert.Equal(-1, header.Index);
             Assert.Null(header.ListView);
@@ -1479,7 +1479,7 @@ namespace System.Windows.Forms.Tests
             Assert.Null(header.Container);
             Assert.Equal(-1, header.DisplayIndex);
             Assert.Equal(-1, header.ImageIndex);
-            Assert.Equal(string.Empty, header.ImageKey);
+            Assert.Empty(header.ImageKey);
             Assert.Null(header.ImageList);
             Assert.Equal(-1, header.Index);
             Assert.Null(header.ListView);
@@ -1518,7 +1518,7 @@ namespace System.Windows.Forms.Tests
             Assert.Null(header.Container);
             Assert.Equal(-1, header.DisplayIndex);
             Assert.Equal(-1, header.ImageIndex);
-            Assert.Equal(string.Empty, header.ImageKey);
+            Assert.Empty(header.ImageKey);
             Assert.Null(header.ImageList);
             Assert.Equal(-1, header.Index);
             Assert.Null(header.ListView);
@@ -1558,7 +1558,7 @@ namespace System.Windows.Forms.Tests
             Assert.NotNull(header.Events);
             Assert.Same(header.Events, header.Events);
             Assert.Equal(-1, header.ImageIndex);
-            Assert.Equal(string.Empty, header.ImageKey);
+            Assert.Empty(header.ImageKey);
             Assert.Null(header.ImageList);
             Assert.Equal(-1, header.Index);
             Assert.Null(header.ListView);

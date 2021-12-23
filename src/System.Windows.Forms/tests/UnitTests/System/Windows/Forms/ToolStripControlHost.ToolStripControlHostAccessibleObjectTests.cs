@@ -34,7 +34,7 @@ namespace System.Windows.Forms.Tests
             using ToolStripControlHost toolStrip = new(control);
             var accessibleObject = (ToolStripControlHostAccessibleObject)toolStrip.AccessibilityObject;
 
-            Assert.Equal(string.Empty, accessibleObject.DefaultAction);
+            Assert.Empty(accessibleObject.DefaultAction);
             Assert.False(toolStrip.Control.IsHandleCreated);
         }
 

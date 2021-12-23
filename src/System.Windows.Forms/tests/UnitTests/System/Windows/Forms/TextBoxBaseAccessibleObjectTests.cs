@@ -68,7 +68,7 @@ namespace System.Windows.Forms.Tests
             using TextBoxBase textBoxBase = new SubTextBoxBase();
             textBoxBase.Text = "Some test text";
             AccessibleObject accessibleObject = textBoxBase.AccessibilityObject;
-            Assert.Equal(string.Empty, accessibleObject.Value);
+            Assert.Empty(accessibleObject.Value);
             Assert.False(textBoxBase.IsHandleCreated);
         }
 

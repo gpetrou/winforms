@@ -314,7 +314,7 @@ namespace System.Windows.Forms.Tests
         public void TextBox_PlaceholderText_DefaultValue()
         {
             using var tb = new TextBox();
-            Assert.Equal(string.Empty, tb.PlaceholderText);
+            Assert.Empty(tb.PlaceholderText);
         }
 
         [WinFormsFact]
@@ -367,7 +367,7 @@ namespace System.Windows.Forms.Tests
             };
 
             tb.PlaceholderText = null;
-            Assert.Equal(string.Empty, tb.PlaceholderText);
+            Assert.Empty(tb.PlaceholderText);
         }
 
         [WinFormsFact]

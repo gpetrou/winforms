@@ -92,7 +92,7 @@ namespace System.Windows.Forms.Tests
             cell.ReadOnly = true;
 
             Assert.True(cell.ReadOnly);
-            Assert.Equal(string.Empty, cell.AccessibilityObject.DefaultAction);
+            Assert.Empty(cell.AccessibilityObject.DefaultAction);
         }
 
         public static IEnumerable<object[]> DataGridViewCheckBoxCellAccessibleObject_DefaultAction_TestData()

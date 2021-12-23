@@ -169,7 +169,7 @@ namespace System.Windows.Forms.Tests.AccessibleObjects
             using CheckedListBox checkedListBox = new();
             checkedListBox.Items.Add("A");
 
-            Assert.Equal(string.Empty, checkedListBox.AccessibilityObject.GetChild(0).DefaultAction);
+            Assert.Empty(checkedListBox.AccessibilityObject.GetChild(0).DefaultAction);
             Assert.False(checkedListBox.IsHandleCreated);
         }
 

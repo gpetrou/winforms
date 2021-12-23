@@ -189,13 +189,13 @@ namespace System.Windows.Forms.Tests
             using var control = new SubLabel();
             Assert.NotEqual(IntPtr.Zero, control.Handle);
             Assert.Equal(index, control.ImageIndex);
-            Assert.Equal(string.Empty, control.ImageKey);
+            Assert.Empty(control.ImageKey);
 
             control.ImageKey = "key";
             control.ImageIndex = index;
 
             Assert.Equal(index, control.ImageIndex);
-            Assert.Equal(string.Empty, control.ImageKey);
+            Assert.Empty(control.ImageKey);
         }
 
         [WinFormsFact]

@@ -23,7 +23,7 @@ namespace System.Windows.Forms.Tests
         {
             var accessibleObject = new DataGridViewImageCellAccessibleObject(null);
 
-            Assert.Equal(string.Empty, accessibleObject.DefaultAction);
+            Assert.Empty(accessibleObject.DefaultAction);
         }
 
         [WinFormsFact]

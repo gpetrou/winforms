@@ -85,7 +85,7 @@ namespace System.Windows.Forms.Tests
         {
             using DataGridViewTopLeftHeaderCell cell = new();
 
-            Assert.Equal(string.Empty, cell.AccessibilityObject.Value);
+            Assert.Empty(cell.AccessibilityObject.Value);
         }
 
         [WinFormsFact]
@@ -141,7 +141,7 @@ namespace System.Windows.Forms.Tests
             cell.Value = "It is not empty string";
             control.TopLeftHeaderCell = cell;
 
-            Assert.Equal(string.Empty, cell.AccessibilityObject.Name);
+            Assert.Empty(cell.AccessibilityObject.Name);
             Assert.False(control.IsHandleCreated);
         }
 

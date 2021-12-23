@@ -43,7 +43,7 @@ namespace System.Windows.Forms.Tests
             using VScrollBar scrollBar = GetVScrollBar(createControl, rightToLeft, minimum, maximum, value);
             ScrollBarThumbAccessibleObject accessibleObject = GetThumb(scrollBar);
 
-            Assert.Equal(string.Empty, accessibleObject.DefaultAction);
+            Assert.Empty(accessibleObject.DefaultAction);
             Assert.Equal(createControl, scrollBar.IsHandleCreated);
         }
 

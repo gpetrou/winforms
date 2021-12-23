@@ -95,7 +95,7 @@ namespace System.Windows.Forms.Tests
 
             // By default Name has string.Empty value, because if AccessibleName is not defined
             // then control uses the value of "Text" property from owner Item (by default an empty string)
-            Assert.Equal(string.Empty, toolStripItemAccessibleObject.GetPropertyValue(UIA.NamePropertyId));
+            Assert.Empty(toolStripItemAccessibleObject.GetPropertyValue(UIA.NamePropertyId));
 
             item.Name = "Name1";
             item.AccessibleName = "Test Name";

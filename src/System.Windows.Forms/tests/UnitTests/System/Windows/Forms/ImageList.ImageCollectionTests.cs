@@ -536,7 +536,7 @@ namespace System.Windows.Forms.Tests
             collection.Add(value);
             Assert.Equal(1, collection.Count);
             Assert.False(collection.Empty);
-            Assert.Equal(string.Empty, Assert.Single(collection.Keys));
+            Assert.Empty(Assert.Single(collection.Keys));
             Assert.False(list.HandleCreated);
 
             // Add again.
@@ -561,7 +561,7 @@ namespace System.Windows.Forms.Tests
             collection.Add(value);
             Assert.Equal(1, collection.Count);
             Assert.False(collection.Empty);
-            Assert.Equal(string.Empty, Assert.Single(collection.Keys));
+            Assert.Empty(Assert.Single(collection.Keys));
             Assert.True(list.HandleCreated);
 
             // Add again.
@@ -605,7 +605,7 @@ namespace System.Windows.Forms.Tests
             collection.Add(value, transparentColor);
             Assert.Equal(1, collection.Count);
             Assert.False(collection.Empty);
-            Assert.Equal(string.Empty, Assert.Single(collection.Keys));
+            Assert.Empty(Assert.Single(collection.Keys));
             Assert.False(list.HandleCreated);
 
             // Add again.
@@ -630,7 +630,7 @@ namespace System.Windows.Forms.Tests
             collection.Add(value, transparentColor);
             Assert.Equal(1, collection.Count);
             Assert.False(collection.Empty);
-            Assert.Equal(string.Empty, Assert.Single(collection.Keys));
+            Assert.Empty(Assert.Single(collection.Keys));
             Assert.True(list.HandleCreated);
 
             // Add again.
@@ -751,7 +751,7 @@ namespace System.Windows.Forms.Tests
             collection.Add(value);
             Assert.Equal(1, collection.Count);
             Assert.False(collection.Empty);
-            Assert.Equal(string.Empty, Assert.Single(collection.Keys));
+            Assert.Empty(Assert.Single(collection.Keys));
             Assert.False(list.HandleCreated);
 
             // Add again.
@@ -776,7 +776,7 @@ namespace System.Windows.Forms.Tests
             collection.Add(value);
             Assert.Equal(1, collection.Count);
             Assert.False(collection.Empty);
-            Assert.Equal(string.Empty, Assert.Single(collection.Keys));
+            Assert.Empty(Assert.Single(collection.Keys));
             Assert.True(list.HandleCreated);
 
             // Add again.

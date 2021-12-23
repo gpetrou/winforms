@@ -23,7 +23,7 @@ namespace System.Windows.Forms.Tests
             Assert.Equal(SystemColors.WindowText, item.ForeColor);
             Assert.Null(item.Group);
             Assert.Equal(-1, item.ImageIndex);
-            Assert.Equal(string.Empty, item.ImageKey);
+            Assert.Empty(item.ImageKey);
             Assert.Null(item.ImageList);
             Assert.Equal(0, item.IndentCount);
             Assert.Equal(-1, item.Index);
@@ -250,7 +250,7 @@ namespace System.Windows.Forms.Tests
             Assert.Equal(SystemColors.WindowText, item.ForeColor);
             Assert.Equal(group, item.Group);
             Assert.Equal(imageIndex, item.ImageIndex);
-            Assert.Equal(string.Empty, item.ImageKey);
+            Assert.Empty(item.ImageKey);
             Assert.Null(item.ImageList);
             Assert.Equal(0, item.IndentCount);
             Assert.Equal(-1, item.Index);
@@ -476,7 +476,7 @@ namespace System.Windows.Forms.Tests
             Assert.Equal(SystemColors.WindowText, item.ForeColor);
             Assert.Null(item.Group);
             Assert.Equal(imageIndex, item.ImageIndex);
-            Assert.Equal(string.Empty, item.ImageKey);
+            Assert.Empty(item.ImageKey);
             Assert.Null(item.ImageList);
             Assert.Equal(0, item.IndentCount);
             Assert.Equal(-1, item.Index);
@@ -590,7 +590,7 @@ namespace System.Windows.Forms.Tests
             Assert.Equal(SystemColors.WindowText, item.ForeColor);
             Assert.Null(item.Group);
             Assert.Equal(imageIndex, item.ImageIndex);
-            Assert.Equal(string.Empty, item.ImageKey);
+            Assert.Empty(item.ImageKey);
             Assert.Null(item.ImageList);
             Assert.Equal(0, item.IndentCount);
             Assert.Equal(-1, item.Index);
@@ -627,7 +627,7 @@ namespace System.Windows.Forms.Tests
             Assert.Equal(SystemColors.WindowText, item.ForeColor);
             Assert.Equal(group, item.Group);
             Assert.Equal(-1, item.ImageIndex);
-            Assert.Equal(string.Empty, item.ImageKey);
+            Assert.Empty(item.ImageKey);
             Assert.Null(item.ImageList);
             Assert.Equal(0, item.IndentCount);
             Assert.Equal(-1, item.Index);
@@ -703,7 +703,7 @@ namespace System.Windows.Forms.Tests
             Assert.Equal(SystemColors.WindowText, item.ForeColor);
             Assert.Null(item.Group);
             Assert.Equal(imageIndex, item.ImageIndex);
-            Assert.Equal(string.Empty, item.ImageKey);
+            Assert.Empty(item.ImageKey);
             Assert.Null(item.ImageList);
             Assert.Equal(0, item.IndentCount);
             Assert.Equal(-1, item.Index);
@@ -740,7 +740,7 @@ namespace System.Windows.Forms.Tests
             Assert.Equal(SystemColors.WindowText, item.ForeColor);
             Assert.Equal(group, item.Group);
             Assert.Equal(-1, item.ImageIndex);
-            Assert.Equal(string.Empty, item.ImageKey);
+            Assert.Empty(item.ImageKey);
             Assert.Null(item.ImageList);
             Assert.Equal(0, item.IndentCount);
             Assert.Equal(-1, item.Index);

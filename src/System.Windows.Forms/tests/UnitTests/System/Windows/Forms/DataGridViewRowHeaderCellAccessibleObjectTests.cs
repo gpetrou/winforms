@@ -40,7 +40,7 @@ namespace System.Windows.Forms.Tests
         public void DataGridViewRowHeaderCellAccessibleObject_Value_ReturnsExpected()
         {
             DataGridViewRowHeaderCellAccessibleObject accessibleObject = new(null);
-            Assert.Equal(string.Empty, accessibleObject.Value);
+            Assert.Empty(accessibleObject.Value);
         }
 
         [WinFormsFact]

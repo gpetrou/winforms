@@ -75,7 +75,7 @@ namespace System.Windows.Forms.Tests
             Assert.True(control.HideSelection);
             Assert.False(control.HotTracking);
             Assert.Equal(-1, control.ImageIndex);
-            Assert.Equal(string.Empty, control.ImageKey);
+            Assert.Empty(control.ImageKey);
             Assert.Null(control.ImageList);
             Assert.Equal(ImeMode.NoControl, control.ImeMode);
             Assert.Equal(ImeMode.NoControl, control.ImeModeBase);
@@ -107,7 +107,7 @@ namespace System.Windows.Forms.Tests
             Assert.False(control.RightToLeftLayout);
             Assert.True(control.Scrollable);
             Assert.Equal(-1, control.SelectedImageIndex);
-            Assert.Equal(string.Empty, control.SelectedImageKey);
+            Assert.Empty(control.SelectedImageKey);
             Assert.Null(control.SelectedNode);
             Assert.True(control.ShowFocusCues);
             Assert.True(control.ShowLines);
@@ -6610,7 +6610,7 @@ namespace System.Windows.Forms.Tests
 
             Assert.Equal("Test caption", wrapper.Text);
             // Assert.Equal method does not work because char* cannot be used as an argument to it
-            Assert.Equal(string.Empty, new string(wrapper.Info.lpszText));
+            Assert.Empty(new string(wrapper.Info.lpszText));
         }
 
         [WinFormsFact]

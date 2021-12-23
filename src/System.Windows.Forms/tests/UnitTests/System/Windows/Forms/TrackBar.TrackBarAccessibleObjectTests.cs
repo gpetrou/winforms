@@ -58,7 +58,7 @@ namespace System.Windows.Forms.Tests
             Assert.Same(ownerControl, accessibilityObject.Owner);
             Assert.Null(accessibilityObject.Parent);
             Assert.Equal(AccessibleStates.None, accessibilityObject.State);
-            Assert.Equal(string.Empty, accessibilityObject.Value);
+            Assert.Empty(accessibilityObject.Value);
             Assert.False(ownerControl.IsHandleCreated);
             Assert.Equal(ownerControl.Handle, accessibilityObject.Handle);
         }
@@ -133,7 +133,7 @@ namespace System.Windows.Forms.Tests
             Control.ControlAccessibleObject accessibilityObject = Assert.IsAssignableFrom<Control.ControlAccessibleObject>(ownerControl.AccessibilityObject);
             accessibilityObject.Value = value;
 
-            Assert.Equal(string.Empty, accessibilityObject.Value);
+            Assert.Empty(accessibilityObject.Value);
             Assert.Equal(5, ownerControl.Value);
         }
 
