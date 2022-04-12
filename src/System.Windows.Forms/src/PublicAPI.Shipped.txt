@@ -1966,11 +1966,11 @@ System.Windows.Forms.Label.ImageKey.get -> string?
 System.Windows.Forms.Label.ImageKey.set -> void
 System.Windows.Forms.Label.ImageList.get -> System.Windows.Forms.ImageList?
 System.Windows.Forms.Label.ImageList.set -> void
-~System.Windows.Forms.LayoutEventArgs.AffectedComponent.get -> System.ComponentModel.IComponent
-~System.Windows.Forms.LayoutEventArgs.AffectedControl.get -> System.Windows.Forms.Control
-~System.Windows.Forms.LayoutEventArgs.AffectedProperty.get -> string
-~System.Windows.Forms.LayoutEventArgs.LayoutEventArgs(System.ComponentModel.IComponent affectedComponent, string affectedProperty) -> void
-~System.Windows.Forms.LayoutEventArgs.LayoutEventArgs(System.Windows.Forms.Control affectedControl, string affectedProperty) -> void
+System.Windows.Forms.LayoutEventArgs.AffectedComponent.get -> System.ComponentModel.IComponent?
+System.Windows.Forms.LayoutEventArgs.AffectedControl.get -> System.Windows.Forms.Control?
+System.Windows.Forms.LayoutEventArgs.AffectedProperty.get -> string?
+System.Windows.Forms.LayoutEventArgs.LayoutEventArgs(System.ComponentModel.IComponent? affectedComponent, string? affectedProperty) -> void
+System.Windows.Forms.LayoutEventArgs.LayoutEventArgs(System.Windows.Forms.Control? affectedControl, string? affectedProperty) -> void
 ~System.Windows.Forms.LinkLabel.Link.Description.get -> string
 ~System.Windows.Forms.LinkLabel.Link.Description.set -> void
 ~System.Windows.Forms.LinkLabel.Link.Link(int start, int length, object linkData) -> void
