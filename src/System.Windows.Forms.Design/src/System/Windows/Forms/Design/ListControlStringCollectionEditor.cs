@@ -19,7 +19,7 @@ internal class ListControlStringCollectionEditor : StringCollectionEditor
     {
     }
 
-    public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
+    public override object? EditValue(ITypeDescriptorContext? context, IServiceProvider provider, object? value)
     {
         // If we're trying to edit the items in an object that has a DataSource set, throw an exception.
         ListControl control = context.Instance as ListControl;

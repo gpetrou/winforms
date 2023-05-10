@@ -2,8 +2,6 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-#nullable disable
-
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Drawing.Design;
@@ -15,9 +13,9 @@ internal class FormatStringEditor : UITypeEditor
     private FormatStringDialog _formatStringDialog;
 
     /// Edits the specified value using the specified provider within the specified context.
-    public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
+    public override object? EditValue(ITypeDescriptorContext? context, IServiceProvider provider, object? value)
     {
-        if (!provider.TryGetService(out IWindowsFormsEditorService editorService))
+        if (!provider.TryGetService(out IWindowsFormsEditorService? editorService))
         {
             return value;
         }
@@ -86,6 +84,6 @@ internal class FormatStringEditor : UITypeEditor
         return value;
     }
 
-    public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
+    public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext? context)
         => UITypeEditorEditStyle.Modal;
 }

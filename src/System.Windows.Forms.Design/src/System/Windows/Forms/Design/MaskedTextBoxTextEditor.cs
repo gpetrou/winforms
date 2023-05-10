@@ -2,8 +2,6 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-#nullable disable
-
 using System.ComponentModel;
 using System.Drawing.Design;
 
@@ -11,7 +9,7 @@ namespace System.Windows.Forms.Design;
 
 internal class MaskedTextBoxTextEditor : UITypeEditor
 {
-    public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
+    public override object? EditValue(ITypeDescriptorContext? context, IServiceProvider provider, object? value)
     {
         if (context?.Instance is null | !provider.TryGetService(out IWindowsFormsEditorService editorService))
         {
@@ -36,7 +34,7 @@ internal class MaskedTextBoxTextEditor : UITypeEditor
         return value;
     }
 
-    public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
+    public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext? context)
     {
         if (context?.Instance is not null)
         {
@@ -46,7 +44,7 @@ internal class MaskedTextBoxTextEditor : UITypeEditor
         return base.GetEditStyle(context);
     }
 
-    public override bool GetPaintValueSupported(ITypeDescriptorContext context)
+    public override bool GetPaintValueSupported(ITypeDescriptorContext? context)
     {
         if (context?.Instance is not null)
         {

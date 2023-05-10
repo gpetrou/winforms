@@ -2,8 +2,6 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-#nullable disable
-
 using System.ComponentModel;
 
 namespace System.Drawing.Design;
@@ -27,7 +25,7 @@ public class FontNameEditor : UITypeEditor
     /// <returns>
     ///  <see langword="true" /> as this editor supports the painting of a representation of an object's value.
     /// </returns>
-    public override bool GetPaintValueSupported(ITypeDescriptorContext context) => true;
+    public override bool GetPaintValueSupported(ITypeDescriptorContext? context) => true;
 
     /// <inheritdoc />
     public override void PaintValue(PaintValueEventArgs e)

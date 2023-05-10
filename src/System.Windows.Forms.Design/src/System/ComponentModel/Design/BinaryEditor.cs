@@ -2,8 +2,6 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-#nullable disable
-
 using System.Drawing.Design;
 using System.Text;
 using System.Windows.Forms;
@@ -89,7 +87,7 @@ public sealed partial class BinaryEditor : UITypeEditor
         }
     }
 
-    public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
+    public override object? EditValue(ITypeDescriptorContext? context, IServiceProvider provider, object? value)
     {
         if (provider is null)
         {
@@ -118,7 +116,7 @@ public sealed partial class BinaryEditor : UITypeEditor
     }
 
     /// <inheritdoc />
-    public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context) => UITypeEditorEditStyle.Modal;
+    public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext? context) => UITypeEditorEditStyle.Modal;
 
     internal void ShowHelp()
     {

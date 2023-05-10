@@ -2,8 +2,6 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-#nullable disable
-
 using System.Drawing.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
@@ -28,7 +26,7 @@ public abstract partial class ObjectSelectorEditor : UITypeEditor
     }
 
     /// <inheritdoc />
-    public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
+    public override object EditValue(ITypeDescriptorContext? context, IServiceProvider provider, object value)
     {
         if (!provider.TryGetService(out IWindowsFormsEditorService editorService))
         {
@@ -74,11 +72,11 @@ public abstract partial class ObjectSelectorEditor : UITypeEditor
         PInvoke.SendMessage(hwnd, (User32.WM)PInvoke.TVM_SETEXTENDEDSTYLE, (WPARAM)0, (LPARAM)(uint)exstyle);
     }
 
-    public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context) => UITypeEditorEditStyle.DropDown;
+    public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext? context) => UITypeEditorEditStyle.DropDown;
 
     protected internal bool EqualsToValue(object value) => value == currValue;
 
-    protected virtual void FillTreeWithData(Selector selector, ITypeDescriptorContext context, IServiceProvider provider)
+    protected virtual void FillTreeWithData(Selector selector, ITypeDescriptorContext? context, IServiceProvider provider)
         => selector.Clear();
 
     /// <inheritdoc />

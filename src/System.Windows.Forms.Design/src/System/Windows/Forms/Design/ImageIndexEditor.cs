@@ -2,8 +2,6 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-#nullable disable
-
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
@@ -15,12 +13,12 @@ namespace System.Windows.Forms.Design;
 /// </summary>
 internal class ImageIndexEditor : UITypeEditor
 {
-    protected ImageList _currentImageList;
-    protected WeakReference _currentImageListPropertyReference;
-    protected object _currentInstance;
+    protected ImageList? _currentImageList;
+    protected WeakReference? _currentImageListPropertyReference;
+    protected object? _currentInstance;
     protected UITypeEditor _imageEditor;
     protected string _parentImageListProperty = "Parent";
-    protected string _imageListPropertyName;
+    protected string? _imageListPropertyName;
 
     /// <summary>
     ///  Initializes a new instance of the <see cref="ImageIndexEditor"/> class.
@@ -110,7 +108,7 @@ internal class ImageIndexEditor : UITypeEditor
     }
 
     /// <inheritdoc />
-    public override bool GetPaintValueSupported(ITypeDescriptorContext context)
+    public override bool GetPaintValueSupported(ITypeDescriptorContext? context)
         => _imageEditor?.GetPaintValueSupported(context) ?? false;
 
     /// <inheritdoc />
@@ -138,7 +136,7 @@ internal class ImageIndexEditor : UITypeEditor
         }
     }
 
-    internal static PropertyDescriptor GetImageListProperty(PropertyDescriptor currentComponent, ref object instance)
+    internal static PropertyDescriptor? GetImageListProperty(PropertyDescriptor currentComponent, ref object instance)
     {
         // Multiple selection is not supported by this class.
         if (instance is object[]

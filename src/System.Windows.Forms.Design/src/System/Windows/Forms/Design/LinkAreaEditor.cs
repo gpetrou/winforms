@@ -2,8 +2,6 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-#nullable disable
-
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Drawing.Design;
@@ -17,7 +15,7 @@ internal partial class LinkAreaEditor : UITypeEditor
 {
     private LinkAreaUI _linkAreaUI;
 
-    public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
+    public override object? EditValue(ITypeDescriptorContext? context, IServiceProvider provider, object? value)
     {
         if (!provider.TryGetService(out IWindowsFormsEditorService editorService))
         {
@@ -65,6 +63,6 @@ internal partial class LinkAreaEditor : UITypeEditor
     }
 
     /// <inheritdoc />
-    public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
+    public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext? context)
         => UITypeEditorEditStyle.Modal;
 }

@@ -61,7 +61,7 @@ internal class ListViewGroupCollectionEditor : CollectionEditor
         return result;
     }
 
-    public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
+    public override object? EditValue(ITypeDescriptorContext? context, IServiceProvider provider, object? value)
     {
         _editValue = value;
         object result;

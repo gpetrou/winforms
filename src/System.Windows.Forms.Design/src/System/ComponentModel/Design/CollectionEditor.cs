@@ -2,8 +2,6 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-#nullable disable
-
 using System.Collections;
 using System.Drawing.Design;
 using System.Reflection;
@@ -94,7 +92,7 @@ public partial class CollectionEditor : UITypeEditor
     /// </summary>
     protected virtual object CreateInstance(Type itemType)
     {
-        if (Context.TryGetService(out IDesignerHost host) && typeof(IComponent).IsAssignableFrom(itemType))
+        if (Context.TryGetService(out IDesignerHost? host) && typeof(IComponent).IsAssignableFrom(itemType))
         {
             IComponent instance = host.CreateComponent(itemType, null);
 
@@ -210,7 +208,7 @@ public partial class CollectionEditor : UITypeEditor
     /// <summary>
     ///  Edits the specified object value using the editor style  provided by <see cref="GetEditStyle"/>.
     /// </summary>
-    public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
+    public override object? EditValue(ITypeDescriptorContext? context, IServiceProvider provider, object? value)
     {
         if (!provider.TryGetService(out IWindowsFormsEditorService editorService))
         {
@@ -284,7 +282,7 @@ public partial class CollectionEditor : UITypeEditor
     }
 
     /// <inheritdoc />
-    public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context) => UITypeEditorEditStyle.Modal;
+    public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext? context) => UITypeEditorEditStyle.Modal;
 
     private bool IsAnyObjectInheritedReadOnly(object[] items)
     {
@@ -342,7 +340,7 @@ public partial class CollectionEditor : UITypeEditor
     /// <summary>
     ///  Reflect any change events to the instance object
     /// </summary>
-    private void OnComponentChanged(object sender, ComponentChangedEventArgs e)
+    private void OnComponentChanged(object? sender, ComponentChangedEventArgs e)
     {
         if (!_ignoreChangedEvents && sender != Context.Instance)
         {
@@ -354,7 +352,7 @@ public partial class CollectionEditor : UITypeEditor
     /// <summary>
     ///  Reflect any changed events to the instance object
     /// </summary>
-    private void OnComponentChanging(object sender, ComponentChangingEventArgs e)
+    private void OnComponentChanging(object? sender, ComponentChangingEventArgs e)
     {
         if (!_ignoreChangingEvents && sender != Context.Instance)
         {
